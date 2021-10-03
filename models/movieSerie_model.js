@@ -1,8 +1,8 @@
 import { INTEGER, TEXT, BLOB } from 'sequelize';
-import { define } from '../database/db';
+import db from '../database/db';
 
 
-const movieSerie = define('character', {
+export const movieSerie = db.define('character', {
     id: {
         type: INTEGER,
         primaryKey: true
@@ -18,4 +18,3 @@ const movieSerie = define('character', {
     }
 });
 
-export default movieSerie;

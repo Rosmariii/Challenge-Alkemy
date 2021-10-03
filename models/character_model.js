@@ -1,9 +1,9 @@
-import { INTEGER, BLOB, TEXT } from 'sequelize';
-import sequelize from '../database/db';
+import { INTEGER, BLOB, TEXT} from 'sequelize';
+import db from '../database/db';
 import movieSerie, { belongsTo } from './movieSerie_model';
 
 
-const character = sequelize('character', {
+export const character = db.define('character', {
     id: {
         type: INTEGER,
         primaryKey: true
@@ -12,7 +12,7 @@ const character = sequelize('character', {
         type: BLOB
     },
     name: {
-        type:TEXT
+        type: TEXT
     },
     age: {
         type: INTEGER
@@ -29,7 +29,4 @@ const character = sequelize('character', {
 });
 
 character.hasMany(movieSerie, {foreingKey: 'associated_character', sourceKey: 'id'})
-movieSerie.belongsTo(character, {foreingKey: 'associated_character', sourceKey: 'id'})
-
-
-export default character;
+belongsTo(character, {foreingKey: 'associated_character', sourceKey: 'id'})

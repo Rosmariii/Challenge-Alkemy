@@ -1,24 +1,24 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../database/db');
+import { INTEGER, BLOB, TEXT, DataTypes} from 'sequelize';
+import db from '../database/db';
 
-const genreMovie = sequelize.define('character', {
+export const genreMovie = db.define('character', {
     id: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         primaryKey: true
     },
     image: {
-        type: Sequelize.BLOB
+        type: BLOB
     },
     title: {
-        type: Sequelize.TEXT
+        type: TEXT
     },
     create_at: {
-        type: Sequelize.DataTypes
+        type : DataTypes.NOW
     },
     qualification: {
-        type: Sequelize.INTEGER
+        type: INTEGER
     },
     associated_movieSerie: {
-        type: Sequelize.TEXT
+        type: TEXT
     }
 });
